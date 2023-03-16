@@ -1,8 +1,8 @@
+import os
+
+from dotenv import load_dotenv
 from sqlalchemy import Column, Date, Float, Integer, create_engine
 from sqlalchemy.orm import DeclarativeBase
-
-import os
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -21,7 +21,12 @@ class Order(Base):
     delivery_day = Column(Date)
 
 
-database = (f'postgresql://{os.getenv("POSTGRES_USER")}:'
-            f'{os.getenv("POSTGRES_PASSWORD")}@{os.getenv("DB_HOST")}/'
-            f'{os.getenv("POSTGRES_DB")}')
-engine = create_engine(database)
+try:
+    database = (f'postgresql://{os.getenv("POSTGRES_USER")}:'
+                f'{os.getenv("POSTGRES_PASSWORD")}@{os.getenv("DB_HOST")}/'
+                f'{os.getenv("POSTGRES_DB")}')
+    engine = create_engine(database)
+except Exception as err:
+    raise Exception(
+        'Не возможно подключиться к базе данных: {err}'
+    ) from err
