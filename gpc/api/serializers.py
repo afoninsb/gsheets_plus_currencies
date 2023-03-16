@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.db.models import Sum
 
 from api.models import Order
 
@@ -8,4 +9,12 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('number', 'price_usd', 'price_rub', 'delivery_day')
+        exclude = ('id',)
+
+
+class OrdersSerializer(serializers.Serializer):
+    total = serializers.SerializerMethodField()
+    orders = OrderSerializer(many=True, read_only=True)
+
+    def get_total(self, obj) -> float:
+        return Order.objects.aggregate(Sum('price_rub'))['price_rub__sum']
