@@ -13,6 +13,8 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class OrdersSerializer(serializers.Serializer):
+    """Сериализатор выдачи списка заказов."""
+
     total = serializers.SerializerMethodField()
     orders = OrderSerializer(many=True, read_only=True)
 
