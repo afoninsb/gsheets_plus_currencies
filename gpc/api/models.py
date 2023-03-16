@@ -35,4 +35,4 @@ class Order(models.Model):
         ordering = ('delivery_day',)
 
     def __str__(self):
-        return self.number
+        return f'{self.number}: {self.price_rub} руб.'

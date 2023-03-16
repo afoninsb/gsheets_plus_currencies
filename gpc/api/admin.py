@@ -15,3 +15,4 @@ class RecipeAdmin(admin.ModelAdmin):
     )
     list_filter = ('delivery_day',)
     search_fields = ('number',)
+    readonly_fields = ('number', 'price_usd', 'price_rub')
