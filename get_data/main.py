@@ -47,7 +47,7 @@ def exhange_rate(file_path: str) -> float:
 def get_gs_data(path: str) -> List[List[Union[str, int]]] | None:
     """Получаем информацию из Гугл-таблицы."""
 
-    path = f'{path}/.received_files/{os.getenv("GOOGLE_API_KEY")}'
+    path = f'{path}/.conf/{os.getenv("GOOGLE_API_KEY")}'
     try:
         gc = gspread.service_account(filename=path)
     except FileNotFoundError as err:
@@ -128,6 +128,14 @@ def send_message(number: int) -> None:
         logging.warning(f'Ошибка отправки сообщения: {text}')
 
 
+def create_dir(path):
+    """Создаём папку для рабочих файлов."""
+
+    path = f'{path}/received_files'
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+
 if __name__ == '__main__':
     logging.basicConfig(
         level=logging.INFO,
@@ -137,7 +145,8 @@ if __name__ == '__main__':
         datefmt='%Y.%m.%d %H:%M:%S',
     )
     path = Path(__file__).resolve().parent
-    file_path = f'{path}/.received_files/currencies.xml'
+    create_dir(path)
+    file_path = f'{path}/received_files/currencies.xml'
     while True:
         try:
             get_exchange_rates(file_path)
