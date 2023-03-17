@@ -9,7 +9,7 @@ Python 3.10, Django 4.1.7, djangorestframework 3.14.0, drf-yasg 1.21.5, gspread 
 1. Установить в оперционную систему [Docker](https://docs.docker.com/engine/install/) и [Docker-Compose](https://docs.docker.com/compose/install/)
 2. В [Google API Console](https://console.developers.google.com/) настроить приложение для доступа к Google-диску и Google-Таблицам и получить json-файл, содержащий приватный ключ.
 
-**ВНИМАНИЕ! Для проверки тестового задания этот файл нужно скачать с [Google-диска из папки](https://drive.google.com/drive/folders/18oean1fLV34UlhwzGG8A9V5g_1_RnIYa?usp=sharing), расшаренной мною на указанный в задании имейл**
+**ВНИМАНИЕ! Для проверки тестового задания этот файл нужно скачать с [Google-диска из папки](https://drive.google.com/drive/folders/18oean1fLV34UlhwzGG8A9V5g_1_RnIYa?usp=sharing), расшаренной мною на указанный в задании имейл. Таблица с тетовыми данными лежит в той же папке.**
 
 3. С помощью бота [BotFather](https://t.me/BotFather) создать бота и получить его токен
 4. Если неизвестен личный Telegram ID, то узнать его с помощью бота [Get My ID](https://t.me/getmyid_bot)
