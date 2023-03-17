@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo docker stop $(sudo docker ps -a -q)
-sudo docker rm $(sudo docker ps -a -q)
-sudo docker system prune -a
-sudo docker volume prune
+sudo docker stop gsheets_plus_currencies_web_1 gsheets_plus_currencies_web_1 gsheets_plus_currencies_nginx_1
+sudo docker rm gsheets_plus_currencies_web_1 gsheets_plus_currencies_web_1 gsheets_plus_currencies_nginx_1
+sudo docker volume rm gsheets_plus_currencies_web_1 gsheets_plus_currencies_web_1 gsheets_plus_currencies_nginx_1
+sudo docker rmi gsheets_plus_currencies_web postgres:15.2-alpine nginx:1.19.3

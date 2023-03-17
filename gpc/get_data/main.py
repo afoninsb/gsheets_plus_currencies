@@ -69,7 +69,9 @@ def get_gs_data(path: str) -> List[List[Union[str, int]]] | None:
 def is_overdue(order_date: str, number: int) -> None:
     """Проверяем сроки заказа."""
 
-    today = datetime.now().strftime('%Y-%m-%d')
+    today = datetime.now().strftime('%Y.%m.%d')
+    dt = order_date.split('.')
+    order_date = f'{dt[2]}.{dt[1]}.{dt[0]}'
     if order_date < today:
         send_message(number)
 
