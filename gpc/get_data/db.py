@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from sqlalchemy import Column, Date, Float, Integer, create_engine
+from sqlalchemy import Column, Float, Integer, String, create_engine
 from sqlalchemy.orm import DeclarativeBase
 
 load_dotenv()
@@ -18,7 +18,7 @@ class Order(Base):
     number = Column(Integer, index=True)
     price_usd = Column(Integer)
     price_rub = Column(Float)
-    delivery_day = Column(Date)
+    delivery_day = Column(String)
 
 
 try:

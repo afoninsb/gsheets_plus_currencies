@@ -1,4 +1,3 @@
-from datetime import date
 from django.core.validators import MinValueValidator
 from django.db import models
 
@@ -23,10 +22,9 @@ class Order(models.Model):
     price_rub = models.FloatField(
         verbose_name='Стоимость (RUB)',
     )
-    delivery_day = models.DateField(
+    delivery_day = models.CharField(
         verbose_name='Срок поставки',
-        db_index=True,
-        default=date.today
+        max_length=10
     )
 
     class Meta:

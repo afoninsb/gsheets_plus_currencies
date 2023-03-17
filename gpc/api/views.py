@@ -1,10 +1,11 @@
-from rest_framework import status
-from api.serializers import OrderSerializer, OrdersSerializer
-from api.models import Order
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from api.models import Order
+from api.serializers import OrderSerializer, OrdersSerializer
 
 
 @swagger_auto_schema(method='get', responses={200: OrdersSerializer()})
